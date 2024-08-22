@@ -33,3 +33,4 @@
 
 /* Original hardware "reset" button on pin D2 */
 #define HARDWARE_RESET_PIN  D2
+#define DEBOUNCE 10
