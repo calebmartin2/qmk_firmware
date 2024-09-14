@@ -62,11 +62,11 @@ void keyboard_post_init_user(void) {
 uint8_t get_hue(uint8_t layer) {
     switch (layer) {
         case 9:
-            return 120;
+            return 150;
         case 8:
             return 60;
         case 1:
-            return 180;
+            return 100;
         default:
             return 0;
     }
@@ -77,7 +77,7 @@ uint8_t get_val(uint8_t layer) {
         case 9:
         case 8:
         case 1:
-            return 10;
+            return 5;
         default:
             return 0;
     }
