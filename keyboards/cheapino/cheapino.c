@@ -61,12 +61,10 @@ void keyboard_post_init_user(void) {
 
 uint8_t get_hue(uint8_t layer) {
     switch (layer) {
-        case 9:
-            return 150;
         case 8:
-            return 60;
-        case 1:
-            return 100;
+            return 180;
+        case 7:
+            return 120;
         default:
             return 0;
     }
@@ -74,17 +72,16 @@ uint8_t get_hue(uint8_t layer) {
 
 uint8_t get_val(uint8_t layer) {
     switch (layer) {
-        case 9:
         case 8:
-        case 1:
-            return 5;
+        case 7:
+            return 1;
         default:
             return 0;
     }
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-    socd_cleaner_enabled = IS_LAYER_ON_STATE(state, 8);
+    socd_cleaner_enabled = IS_LAYER_ON_STATE(state, 7);
     uint8_t sat = rgblight_get_sat();
     uint8_t val = get_val(get_highest_layer(state));
     uint8_t hue = get_hue(get_highest_layer(state));
