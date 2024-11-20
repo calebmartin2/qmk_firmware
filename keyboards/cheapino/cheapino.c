@@ -2,16 +2,28 @@
 #include "quantum.h"
 #include "features/socd_cleaner.h"
 
-
 socd_cleaner_t socd_v = {{KC_W, KC_S}, SOCD_CLEANER_LAST};
 socd_cleaner_t socd_h = {{KC_A, KC_D}, SOCD_CLEANER_LAST};
 
-
-bool process_record_user(uint16_t keycode, keyrecord_t* record) {
-  if (!process_socd_cleaner(keycode, record, &socd_v)) { return false; }
-  if (!process_socd_cleaner(keycode, record, &socd_h)) { return false; }
-  // Your macros...
-
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_socd_cleaner(keycode, record, &socd_v)) {
+        return false;
+    }
+    if (!process_socd_cleaner(keycode, record, &socd_h)) {
+        return false;
+    }
+    switch (keycode) {
+        case QK_MACRO_0:
+            if (record->event.pressed) {
+                SEND_STRING(" => ");
+            }
+            break;
+        case QK_MACRO_1:
+            if (record->event.pressed) {
+                SEND_STRING("/>");
+            }
+            break;
+    }
     return true;
 }
 // This is to keep state between callbacks, when it is 0 the
@@ -41,15 +53,15 @@ uint32_t flash_led(uint32_t next_trigger_time, void *cb_arg) {
 }
 
 void keyboard_post_init_user(void) {
-    //debug_enable=true;
-    //debug_matrix=true;
-    //debug_keyboard=true;
-    //debug_mouse=true;
+    // debug_enable=true;
+    // debug_matrix=true;
+    // debug_keyboard=true;
+    // debug_mouse=true;
 
     // Store user selected rgb hsv:
-    _hue = rgblight_get_hue();
+    _hue        = rgblight_get_hue();
     _saturation = rgblight_get_sat();
-    _value = rgblight_get_val();
+    _value      = rgblight_get_val();
 
     // Flash a little on start
     defer_exec(50, flash_led, NULL);
@@ -82,10 +94,9 @@ uint8_t get_val(uint8_t layer) {
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     socd_cleaner_enabled = IS_LAYER_ON_STATE(state, 7);
-    uint8_t sat = rgblight_get_sat();
-    uint8_t val = get_val(get_highest_layer(state));
-    uint8_t hue = get_hue(get_highest_layer(state));
+    uint8_t sat          = rgblight_get_sat();
+    uint8_t val          = get_val(get_highest_layer(state));
+    uint8_t hue          = get_hue(get_highest_layer(state));
     rgblight_sethsv(hue, sat, val);
     return state;
 }
-
