@@ -133,6 +133,11 @@ typedef struct {
 bool process_socd_cleaner(uint16_t keycode, keyrecord_t* record,
                           socd_cleaner_t* state);
 
+enum {
+    SOCDON = UC(0x4b),
+    SOCDOFF = UC(0x4c)
+};
+
 /** Determines globally whether SOCD cleaner is enabled. */
 extern bool socd_cleaner_enabled;
 

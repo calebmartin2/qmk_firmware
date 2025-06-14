@@ -6,4 +6,4 @@ DEFERRED_EXEC_ENABLE = yes
 SRC += encoder.c
 SRC += ghosting.c
 SRC += matrix.c
-SRC += features/socd_cleaner.c
+MOUSE_ENABLE = yes

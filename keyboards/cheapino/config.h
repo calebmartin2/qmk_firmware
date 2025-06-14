@@ -26,9 +26,6 @@
 #define RGB_MATRIX_DEFAULT_VAL 6
 
 
-// Pick good defaults for enabling homerow modifiers
-#define TAPPING_TERM 200
-
 #define QUICK_TAP_TERM 0
 
 
@@ -37,6 +34,8 @@
 
 
 #define MAX_DEFERRED_EXECUTORS 32
-
+#define PERMISSIVE_HOLD
 // #define DEBUG_MATRIX_SCAN_RATE
 //#define DEBOUNCE 20
+
+#define TAPPING_TERM 200

@@ -1,17 +1,12 @@
 #include "wait.h"
 #include "quantum.h"
-#include "features/socd_cleaner.h"
 
-socd_cleaner_t socd_v = {{KC_W, KC_S}, SOCD_CLEANER_LAST};
-socd_cleaner_t socd_h = {{KC_A, KC_D}, SOCD_CLEANER_LAST};
+socd_cleaner_t socd_opposing_pairs[] = {
+  {{KC_W, KC_S}, SOCD_CLEANER_LAST},
+  {{KC_A, KC_D}, SOCD_CLEANER_LAST},
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_socd_cleaner(keycode, record, &socd_v)) {
-        return false;
-    }
-    if (!process_socd_cleaner(keycode, record, &socd_h)) {
-        return false;
-    }
     switch (keycode) {
         case QK_MACRO_0:
             if (record->event.pressed) {
@@ -23,9 +18,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("/>");
             }
             break;
+        case QK_MACRO_2:  // Next sentence macro.
+            if (record->event.pressed) {
+                SEND_STRING(". ");
+                add_oneshot_mods(MOD_BIT(KC_LSFT));  // Set one-shot mod for shift.
+            }
     }
     return true;
 }
+
 // This is to keep state between callbacks, when it is 0 the
 // initial RGB flash is finished
 uint8_t _hue_countdown = 50;
@@ -72,9 +73,12 @@ void keyboard_post_init_user(void) {
 // to me at least... Uncomment the lines below to enable
 
 uint8_t get_hue(uint8_t layer) {
+    if (socd_opposing_pairs[0].resolution == SOCD_CLEANER_LAST && layer == 7) {
+        return 200;
+    }
     switch (layer) {
         case 8:
-            return 180;
+            return 30;
         case 7:
             return 120;
         default:
@@ -86,14 +90,22 @@ uint8_t get_val(uint8_t layer) {
     switch (layer) {
         case 8:
         case 7:
-            return 1;
+            return 40;
         default:
             return 0;
     }
 }
-
 layer_state_t layer_state_set_user(layer_state_t state) {
-    socd_cleaner_enabled = IS_LAYER_ON_STATE(state, 7);
+    if (IS_LAYER_ON_STATE(state, 7)) {
+        if (socd_cleaner_enabled) {
+            socd_opposing_pairs[0].resolution = SOCD_CLEANER_LAST;
+            socd_opposing_pairs[1].resolution = SOCD_CLEANER_LAST;
+        }
+    } else {
+        socd_opposing_pairs[0].resolution = SOCD_CLEANER_OFF;
+        socd_opposing_pairs[1].resolution = SOCD_CLEANER_OFF;
+    }
+
     uint8_t sat          = rgblight_get_sat();
     uint8_t val          = get_val(get_highest_layer(state));
     uint8_t hue          = get_hue(get_highest_layer(state));
