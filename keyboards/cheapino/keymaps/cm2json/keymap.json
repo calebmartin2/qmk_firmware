@@ -2,7 +2,7 @@
     "keyboard": "cheapino",
     "keymap": "cm2",
     "layout": "LAYOUT_split_3x5_3",
-    "modules": ["getreuer/orbital_mouse", "getreuer/socd_cleaner"],
+    "modules": ["getreuer/sentence_case", "getreuer/orbital_mouse", "getreuer/socd_cleaner"],
     "layers": [
         // 0 ___ ___
         [
@@ -34,7 +34,7 @@
         ],
         // 4 ___ X__
         [
-            "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",            "KC_NO","KC_NO","KC_WAKE","KC_SLEP","KC_PWR",
+            "QK_BOOT","KC_NO","KC_NO","KC_NO","KC_NO",            "KC_NO","KC_NO","KC_WAKE","KC_SLEP","KC_PWR",
             "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",            "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
             "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",            "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
                             "KC_NO","KC_NO","KC_NO",            "KC_NO","KC_NO","KC_NO"
@@ -44,7 +44,7 @@
             "KC_CAPS","KC_INS","KC_HOME","KC_PGUP","KC_NO",        "KC_NO","KC_NO","KC_NO","KC_NO","KC_NO",
             "KC_LEFT","KC_UP","KC_DOWN","KC_RGHT","KC_NO",         "QK_MACRO_0","KC_LSFT","KC_LCTL","KC_LALT","KC_LGUI",
             "KC_NO","KC_DEL","KC_END","KC_PGDN","KC_NO",           "KC_NO","KC_NO","KC_NO","KC_NO","QK_MACRO_1",
-                                  "KC_NO","KC_NO","KC_NO",         "KC_NO","KC_NO","KC_NO"
+                                  "KC_NO","QK_MACRO_3","KC_NO",         "KC_NO","KC_NO","KC_NO"
         ],
         // 6 ___ __X
         [
@@ -55,7 +55,7 @@
         ],
         // 7 Gaming
         [
-            "KC_ESC","KC_Q","KC_X","KC_E","KC_R",            "KC_Y","KC_U","KC_I","KC_O","SOCDTOG",
+            "KC_ESC","KC_Q","KC_X","KC_E","KC_R",            "KC_Y","KC_U","KC_I","KC_O","QK_MACRO_4",
             "KC_LSFT","KC_A","KC_W","KC_D","KC_F",            "KC_H","KC_J","KC_K","KC_L","LGUI(KC_F)",
             "KC_LCTL","KC_Z","KC_S","KC_C","KC_V",            "KC_N","KC_M","KC_COMM","KC_DOT","KC_SLSH",
                          "KC_1","KC_SPC","MO(8)",            "KC_ESC","KC_BSPC","TO(0)"
