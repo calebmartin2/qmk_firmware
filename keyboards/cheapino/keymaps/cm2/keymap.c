@@ -8,7 +8,7 @@ socd_cleaner_t socd_opposing_pairs[] = {
     {{KC_A, KC_D}, SOCD_CLEANER_LAST},
 };
 
-bool sentence_case_persist;
+bool sentence_case_persist = true;
 bool socd_cleaner_persist = true;
 
 // TODO: The hue seems to be different than what is expected?
