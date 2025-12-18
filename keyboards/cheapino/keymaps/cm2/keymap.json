@@ -7,7 +7,7 @@
         // 0 ___ ___
         [
             "KC_Q","KC_W","KC_E","KC_R","KC_T",              "KC_Y","KC_U","KC_I","KC_O","KC_P",
-            "LGUI_T(KC_A)","LALT_T(KC_S)","LCTL_T(KC_D)","LSFT_T(KC_F)","KC_G","KC_H",            "RSFT_T(KC_J)","LCTL_T(KC_K)","LALT_T(KC_L)","LGUI_T(KC_SCLN)",
+            "LGUI_T(KC_A)","LALT_T(KC_S)","LCTL_T(KC_D)","LSFT_T(KC_F)","KC_G","KC_H",            "LSFT_T(KC_J)","LCTL_T(KC_K)","LALT_T(KC_L)","LGUI_T(KC_SCLN)",
             "KC_Z","KC_X","KC_C","KC_V","LT(3,KC_B)",                 "KC_N","KC_M","KC_COMM","KC_DOT","KC_SLSH",
             "LT(1,KC_ESC)","LT(2,KC_SPC)","LT(3,KC_TAB)",            "LT(4,KC_DEL)","LT(5,KC_BSPC)","LT(6,KC_ENT)"
         ],
@@ -22,14 +22,14 @@
         [
             "KC_LGUI","KC_HOME","KC_PGUP","LGUI(KC_4)","MS_WHLU",            "KC_AT","KC_UNDS","KC_PIPE","KC_GRV","KC_PERC",
             "LGUI(KC_1)","LGUI(KC_2)","LGUI(KC_3)","KC_LSFT","KC_EQL",            "KC_HASH","KC_MINS","KC_EXLM","KC_DQUO","KC_QUOT",
-            "KC_UNDO","KC_CUT","KC_COPY","LGUI(KC_4)","MS_WHLD",            "KC_ASTR","KC_DLR","KC_BSLS","KC_SLSH","KC_AMPR",
+            "KC_UNDO","QK_MACRO_5","KC_PLUS","LGUI(KC_4)","MS_WHLD",            "KC_ASTR","KC_DLR","KC_BSLS","KC_SLSH","KC_AMPR",
                                     "KC_NO","KC_NO","KC_NO",            "KC_NO","QK_MACRO_2","KC_APP"
         ],
         // 3 __X ___
         [
             "KC_NO","KC_NUM","KC_PSCR","KC_SCRL","KC_PAUS",            "KC_F17","KC_F9","KC_F10","KC_F11","KC_F12",
             "LGUI(KC_1)","LGUI(KC_2)","LGUI(KC_3)","TO(7)","LCTL(KC_1)",            "KC_F16","KC_F5","KC_F6","KC_F7","KC_F8",
-            "KC_CAPS","LCTL(KC_EQL)","LCTL(KC_0)","KC_NO","TO(9)",            "KC_F15","KC_F1","KC_F2","KC_F3","KC_F4",
+            "LCTL(KC_0)","LCTL(KC_MINS)","LCTL(KC_EQL)","LCTL(KC_PLUS)","TO(9)",            "KC_F15","KC_F1","KC_F2","KC_F3","KC_F4",
                              "KC_NO","KC_NO","KC_NO",            "KC_F19","KC_F18","KC_F13"
         ],
         // 4 ___ X__
@@ -72,7 +72,7 @@
             "KC_Q","KC_W","KC_E","KC_R","KC_T",                "KC_Y","KC_U","KC_I","KC_O","TO(0)",
             "KC_A","KC_LALT","KC_LCTL","KC_LSFT","KC_TAB",           "KC_H","KC_J","KC_K","KC_L","KC_SCLN",
             "KC_Z","KC_X","KC_C","KC_V","KC_B",            "KC_N","KC_M","KC_COMM","KC_DOT","KC_SLSH",
-                            "LT(1,KC_ESC)","MO(11)","MO(10)",            "LT(4,KC_DEL)","LT(5,KC_BSPC)","LT(6,KC_ENT)"
+                            "MO(11)","KC_SPC","MO(10)",            "LT(4,KC_DEL)","LT(5,KC_BSPC)","LT(6,KC_ENT)"
         ],
         // 10 Krita - Auxillary
         [

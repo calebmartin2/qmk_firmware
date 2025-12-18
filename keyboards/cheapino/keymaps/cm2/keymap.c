@@ -53,6 +53,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 rgblight_sethsv_noeeprom(socd_cleaner_enabled ? HUE_RED : HUE_BLUE, 255, 1);
                 socd_cleaner_persist = socd_cleaner_enabled;
                 break;
+            case QK_MACRO_5:
+                SEND_STRING(" - ");
         }
     }
     return true;
@@ -67,7 +69,7 @@ uint8_t _hue_countdown = 50;
 // stop us from using the keyboard.
 // https://docs.qmk.fm/#/custom_quantum_functions?id=deferred-executor-registration
 uint32_t flash_led(uint32_t next_trigger_time, void *cb_arg) {
-    rgblight_sethsv_noeeprom(_hue_countdown * 5, 230, 70);
+    rgblight_sethsv_noeeprom(_hue_countdown * 5, 230, 16);
     _hue_countdown--;
     if (_hue_countdown == 0) {
         rgblight_sethsv_noeeprom(0, 255, 0);
