@@ -31,3 +31,6 @@
 [submodule "modules/drashna"]
 	path = modules/drashna
 	url = https://github.com/drashna/qmk_modules.git
+[submodule "modules/ohshitgorillas"]
+	path = modules/ohshitgorillas
+	url = https://github.com/ohshitgorillas/qmk_modules.git
