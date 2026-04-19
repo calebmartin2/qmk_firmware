@@ -1,7 +1,7 @@
 #include "quantum.h"
 #include "socd_cleaner.h"
 #include "sentence_case.h"
-//#include "orbital_mouse.h"
+// #include "orbital_mouse.h"
 
 socd_cleaner_t socd_opposing_pairs[] = {
     {{KC_W, KC_S}, SOCD_CLEANER_LAST},
@@ -9,27 +9,18 @@ socd_cleaner_t socd_opposing_pairs[] = {
 };
 
 bool sentence_case_persist = true;
-bool socd_cleaner_persist = true;
+bool socd_cleaner_persist  = true;
 
 // TODO: The hue seems to be different than what is expected?
 const uint8_t HUE_RED   = 85;
 const uint8_t HUE_GREEN = 0;
 const uint8_t HUE_BLUE  = 170;
 
-enum layers {
-    BASE,
-    LEFT_1,
-    LEFT_2,
-    LEFT_3,
-    RIGHT_1,
-    RIGHT_2,
-    RIGHT_3,
-    GAMING,
-    GAMING_AUXILLARY,
-    KRITA,
-    KRITA_AUXILLARY,
-    BLANK
-};
+enum layers { BASE, LEFT_1, LEFT_2, LEFT_3, RIGHT_1, RIGHT_2, RIGHT_3, GAMING, GAMING_AUXILLARY, KRITA, KRITA_AUXILLARY, BLANK };
+
+#define SPAM_DELAY 25 // 50 milliseconds between spams
+bool     spam_active = false;
+uint32_t spam_timer  = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
@@ -55,9 +46,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 break;
             case QK_MACRO_5:
                 SEND_STRING(" - ");
+            case QK_MACRO_6: // When you press custom SPAM keycode
+                if (record->event.pressed) {
+                    spam_active = !spam_active;   // Toggle spamming
+                    spam_timer  = timer_read32(); // Reset spam timer
+                }
+                break;
         }
     }
     return true;
+}
+
+void matrix_scan_user(void){
+  if (spam_active) {
+    // Check if it's been SPAM_DELAY milliseconds since the last spam
+    if (timer_elapsed32(spam_timer) > SPAM_DELAY) {
+      tap_code(MS_BTN1);           // Send an F2 keystroke
+      spam_timer = timer_read32();  // Reset spam timer
+    }
+  }
 }
 
 // This is to keep state between callbacks, when it is 0 the
@@ -85,7 +92,7 @@ void keyboard_post_init_user(void) {
     // debug_keyboard=true;
     // debug_mouse=true;
 
-    rgblight_sethsv(0,0,0);
+    rgblight_sethsv(0, 0, 0);
     sentence_case_on();
     // Flash a little on start
     defer_exec(50, flash_led, NULL);
