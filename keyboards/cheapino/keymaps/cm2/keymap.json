@@ -48,9 +48,9 @@
         ],
         // 6 ___ __X
         [
-            "KC_EQL","KC_CIRC","KC_LT","KC_GT","KC_SCLN",            "KC_NO","KC_WSCH","OM_W_D","OM_W_U","KC_WREF",
-            "KC_LCBR","KC_RCBR","KC_LPRN","KC_RPRN","KC_AT",            "KC_NO","OM_L","OM_U","OM_R","KC_WBAK",
-            "KC_MINS","KC_EXLM","KC_LBRC","KC_RBRC","KC_NO",            "KC_NO","KC_NO","OM_D","KC_NO","KC_WFWD",
+            "KC_EQL","KC_CIRC","KC_LT","KC_GT","KC_SCLN",            "KC_NO","OM_CS_L","OM_CS_U","OM_CS_D","OM_CS_R",
+            "KC_LCBR","KC_RCBR","KC_LPRN","KC_RPRN","KC_AT",            "OM_W_U","OM_L","OM_U","OM_R","OM_SLOW",
+            "KC_MINS","KC_EXLM","KC_LBRC","KC_RBRC","KC_NO",            "OM_W_D","KC_NO","OM_D","KC_NO","KC_WFWD",
                             "MS_BTN2","MS_BTN1","MS_BTN3",            "KC_NO","KC_NO","KC_NO"
         ],
         // 7 Gaming
