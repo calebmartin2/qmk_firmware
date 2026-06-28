@@ -8,6 +8,7 @@
 #define PERMISSIVE_HOLD
 
 // #define DEBUG_MATRIX_SCAN_RATE
-//#define DEBOUNCE 20
+// #define DEBOUNCE 20
 
 #define SPECULATIVE_HOLD
+#define RGBLIGHT_LIMIT_VAL 1
